@@ -1,0 +1,27 @@
+# Went with .yml, but I am neutral in the .yaml vs .yml holy war :), I would just follow existing conventions.
+version: '3.8'
+
+services:
+  bad_load_balancer:
+    image: korvus/bad_load_balancer:0.1.1
+    container_name: bad_load_balancer
+    pull_policy: always # Adding this because the example command provided specified it
+    stdin_open: true  # -i
+    tty: true # -t
+    ports:
+      - "8188:8188"
+  solution:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: solution:latest
+    container_name: solution
+    environment:
+      - MIN_NUMBER_OF_SERVERS=4
+      - UPDATE_INTERVAL=10
+      - MAX_ACCEPTABLE_LOAD=0.75
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=INFO
+#   comment in for a volume for live development
+#    volumes:
+#      - .:/app
