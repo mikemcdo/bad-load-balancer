@@ -67,6 +67,6 @@ INFO:root:Enabling node server-15, queued requests: 42
 The unit tests are ran when the image is built. To run both the unit and integration tests, exec into the container and run `pytest /app`.
 
 ## Running the prod docker compose
-To run the production Docker Compose file, use the command docker compose -f docker-compose-prod.yml up. When you run this command, you will only see the load balancer logs, but you’ll notice that as servers pass the threshold, they switch to disabled and are then enabled appropriately.
+To run the production Docker Compose file, use the command `docker compose -f docker-compose-prod.yml up`. When you run this command, you will only see the load balancer logs, but you’ll notice that as servers pass the threshold, they switch to disabled and are then enabled appropriately.
 
 
