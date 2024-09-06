@@ -69,4 +69,7 @@ The unit tests are ran when the image is built. To run both the unit and integra
 ## Running the prod docker compose
 To run the production Docker Compose file, use the command `docker compose -f docker-compose-prod.yml up`. When you run this command, you will only see the load balancer logs, but you’ll notice that as servers pass the threshold, they switch to disabled and are then enabled appropriately.
 
+## Debugging
+1. Ensure that the `solution.py` file is executable by running `chmod a+x solution.py`, but it should retain the permissions it was commited with.
+2. Delete and rebuild the image. `docker compose down` then `docker image rm solution` and `docker compose up` again
 
